@@ -15,6 +15,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { PrototypeNotice } from "@/components/AppShell";
 import { useStore, type Role } from "@/lib/store";
 import { toast } from "sonner";
 
@@ -180,6 +181,10 @@ function Landing() {
           </div>
         </div>
       </section>
+
+      <div className="mx-auto max-w-6xl px-5 pt-8">
+        <PrototypeNotice className="mb-0" />
+      </div>
 
       <section className="mx-auto max-w-6xl px-5 py-14">
         <h2 className="text-xl font-semibold tracking-tight">Choose how you want to enter the demo</h2>
