@@ -43,13 +43,13 @@ function DoctorPatient() {
         {
           id: `CN-${Date.now()}`,
           date: nowStamp().slice(0, 10),
-          author: "Dr. Meera Iyer, Endocrinology",
+          author: "Dr. Ananya Rao, Endocrinology",
           text: note.trim(),
         },
         ...s.clinicalNotes,
       ],
     }));
-    logAudit({ actor: "Dr. Meera Iyer", action: "Clinical note added", scope: patient.id });
+    logAudit({ actor: "Dr. Ananya Rao", action: "Clinical note added", scope: patient.id });
     setNote("");
     toast.success("Clinical note saved to the shared record");
   };

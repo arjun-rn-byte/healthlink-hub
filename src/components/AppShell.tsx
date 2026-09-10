@@ -79,7 +79,7 @@ const groups: { title: string; role: Role; items: NavItem[] }[] = [
 
 const roleLabels: Record<Role, string> = {
   patient: "Patient · Rahul Sharma",
-  doctor: "Doctor · Dr. Meera Iyer",
+  doctor: "Doctor · Dr. Ananya Rao",
   responder: "Emergency Responder · Unit 108",
   judge: "Judge / Demo Guide",
 };

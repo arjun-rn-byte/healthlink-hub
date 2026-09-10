@@ -48,7 +48,7 @@ function DoctorWorkspace() {
     );
     if (hit) {
       setResult(`${hit.name} · ${hit.id} · ABHA ${hit.abha}`);
-      logAudit({ actor: "Dr. Meera Iyer", action: "Patient record searched", scope: hit.id });
+      logAudit({ actor: "Dr. Ananya Rao", action: "Patient record searched", scope: hit.id });
       toast.success(`Record found: ${hit.name}`);
     } else {
       setResult(null);
@@ -63,14 +63,14 @@ function DoctorWorkspace() {
         p.id === id ? { ...p, status: "in-consult" as const } : p.status === "in-consult" ? { ...p, status: "waiting" as const } : p,
       ),
     }));
-    logAudit({ actor: "Dr. Meera Iyer", action: "Consultation started", scope: id });
+    logAudit({ actor: "Dr. Ananya Rao", action: "Consultation started", scope: id });
     navigate({ to: "/doctor/consultation" });
   };
 
   return (
     <AppShell
       title="OPD workspace"
-      description="Dr. Meera Iyer · Endocrinology · Manipal Hospital, Bengaluru · Room 214"
+      description="Dr. Ananya Rao · Endocrinology · Manipal Hospital, Bengaluru · Room 214"
       actions={
         <Button variant="outline" onClick={() => toast.success("Queue refreshed from hospital HIS")}>
           Refresh queue
@@ -128,7 +128,7 @@ function DoctorWorkspace() {
                     size="sm"
                     variant="outline"
                     onClick={() => {
-                      logAudit({ actor: "Dr. Meera Iyer", action: "Record opened", scope: p.id });
+                      logAudit({ actor: "Dr. Ananya Rao", action: "Record opened", scope: p.id });
                       navigate({ to: "/doctor/patient" });
                     }}
                   >

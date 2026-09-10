@@ -86,7 +86,7 @@ function Consultation() {
         },
       ],
     }));
-    logAudit({ actor: "Dr. Meera Iyer", action: "Vitals recorded in consult", scope: patient.id });
+    logAudit({ actor: "Dr. Ananya Rao", action: "Vitals recorded in consult", scope: patient.id });
     toast.success("Vitals added to the longitudinal record");
   };
 
@@ -98,7 +98,7 @@ function Consultation() {
     const rx = {
       id: `RX-${Date.now()}`,
       date: new Date().toISOString().slice(0, 10),
-      doctor: "Dr. Meera Iyer, Endocrinology",
+      doctor: "Dr. Ananya Rao, Endocrinology",
       diagnosis,
       medicines: meds,
       labOrders: labs,
@@ -156,21 +156,21 @@ function Consultation() {
         {
           id: `N-${Date.now()}`,
           title: "New prescription issued",
-          body: `Dr. Meera Iyer signed a prescription for ${diagnosis}.`,
+          body: `Dr. Ananya Rao signed a prescription for ${diagnosis}.`,
           time: "just now",
           read: false,
         },
         ...s.notifications,
       ],
     }));
-    logAudit({ actor: "Dr. Meera Iyer", action: "Prescription signed & consult closed", scope: patient.id });
+    logAudit({ actor: "Dr. Ananya Rao", action: "Prescription signed & consult closed", scope: patient.id });
     toast.success("Consultation closed — record updated everywhere");
   };
 
   return (
     <AppShell
       title="Active consultation"
-      description={`${patient.name} · ${patient.id} · Token ${active?.token ?? "—"} · Dr. Meera Iyer, Endocrinology`}
+      description={`${patient.name} · ${patient.id} · Token ${active?.token ?? "—"} · Dr. Ananya Rao, Endocrinology`}
       actions={
         <Button onClick={signAndClose}>
           <CheckCircle2 className="size-4" /> Sign & close consult
@@ -338,7 +338,7 @@ function Consultation() {
                   toast.error("Select at least one test");
                   return;
                 }
-                logAudit({ actor: "Dr. Meera Iyer", action: "Lab order raised", scope: labs.join(", ") });
+                logAudit({ actor: "Dr. Ananya Rao", action: "Lab order raised", scope: labs.join(", ") });
                 toast.success(`Lab order sent: ${labs.join(", ")}`);
               }}
             >

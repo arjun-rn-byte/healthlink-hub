@@ -160,7 +160,7 @@ const initialAuditSeed: AuditEntry[] = [];
   let prev = "0000000000000";
   const seeds = [
     {
-      actor: "Dr. Meera Iyer · AIIMS Trauma Bay",
+      actor: "Dr. Ananya Rao · AIIMS Trauma Bay",
       action: "Emergency profile accessed",
       scope: "Allergies, Blood Group, Conditions",
       location: "New Delhi, IN",
@@ -364,12 +364,12 @@ export const initialState: AppState = {
     {
       id: "CN-1",
       date: dayOffset(7),
-      author: "Dr. Meera Iyer, Endocrinology",
+      author: "Dr. Ananya Rao, Endocrinology",
       text: "Glycaemic control improving on Metformin. BP trending down on Amlodipine. Reinforced diet and 30-min daily walk. Penicillin allergy re-confirmed with patient.",
     },
   ],
   appointments: [
-    { id: "AP-1", date: dayOffset(-14).slice(0, 10), time: "10:30 AM", doctor: "Dr. Meera Iyer", dept: "Endocrinology", mode: "In-person" },
+    { id: "AP-1", date: dayOffset(-14).slice(0, 10), time: "10:30 AM", doctor: "Dr. Ananya Rao", dept: "Endocrinology", mode: "In-person" },
     { id: "AP-2", date: dayOffset(-35).slice(0, 10), time: "04:00 PM", doctor: "Dr. Arun Kamath", dept: "Cardiology", mode: "Teleconsult" },
   ],
   demoStep: 0,

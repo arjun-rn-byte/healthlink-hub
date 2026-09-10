@@ -57,7 +57,7 @@ const roles: {
   {
     role: "doctor",
     title: "Doctor / Clinician",
-    person: "Dr. Meera Iyer · Endocrinology, Manipal",
+    person: "Dr. Ananya Rao · Endocrinology, Manipal",
     to: "/doctor",
     icon: Stethoscope,
     points: ["OPD queue & ABHA search", "Longitudinal vitals charts", "Digital prescriptions & lab orders"],
