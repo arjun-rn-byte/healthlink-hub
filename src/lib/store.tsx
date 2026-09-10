@@ -465,7 +465,6 @@ export function healthScore(state: AppState) {
   score -= Math.max(0, v.systolic - 120) * 0.35;
   score -= Math.max(0, v.diastolic - 80) * 0.4;
   score -= Math.max(0, v.glucose - 110) * 0.18;
-  score -= state.conditionsPenalty ?? 0;
   score -= state.patient.conditions.length * 3;
   return Math.max(35, Math.min(99, Math.round(score)));
 }
