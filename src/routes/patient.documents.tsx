@@ -219,7 +219,7 @@ function DocumentsPage() {
                   action: "Document shared with clinician",
                   scope: preview?.name ?? "Document",
                 });
-                toast.success("Shared with Dr. Meera Iyer for 7 days");
+                toast.success("Shared with Dr. Ananya Rao for 7 days");
               }}
             >
               <Share2 className="size-4" /> Share

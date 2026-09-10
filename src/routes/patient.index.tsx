@@ -31,7 +31,7 @@ import { Label } from "@/components/ui/label";
 import { healthScore, useStore, nowStamp, lastVital, prevVital } from "@/lib/store";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/patient")({
+export const Route = createFileRoute("/patient/")({
   head: () => ({
     meta: [
       { title: "Patient Health Dashboard — SWASTHYASETU" },
@@ -314,13 +314,13 @@ function PatientDashboard() {
                       id: `AP-${Date.now()}`,
                       date: d.toISOString().slice(0, 10),
                       time: "11:15 AM",
-                      doctor: "Dr. Meera Iyer",
+                      doctor: "Dr. Ananya Rao",
                       dept: "Endocrinology",
                       mode: "In-person",
                     },
                   ],
                 }));
-                toast.success("Appointment booked with Dr. Meera Iyer");
+                toast.success("Appointment booked with Dr. Ananya Rao");
               }}
             >
               <Plus className="size-4" /> Book appointment

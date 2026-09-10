@@ -15,23 +15,24 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { PrototypeNotice } from "@/components/AppShell";
 import { useStore, type Role } from "@/lib/store";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SWASTHYASETU — Choose Your Role" },
+      { title: "SWASTHYASETU — AI-Assisted Multilingual Patient Health Platform" },
       {
         name: "description",
         content:
-          "Enter SWASTHYASETU as a patient, clinician, emergency responder or hackathon judge and explore the unified health record bridge.",
+          "Enter SWASTHYASETU as a patient, clinician, emergency responder or hackathon judge. AI-assisted, multilingual, consent-driven health records. Simulated prototype.",
       },
-      { property: "og:title", content: "SWASTHYASETU — Choose Your Role" },
+      { property: "og:title", content: "SWASTHYASETU — AI-Assisted Multilingual Patient Health Platform" },
       {
         property: "og:description",
         content:
-          "Enter SWASTHYASETU as a patient, clinician, emergency responder or hackathon judge.",
+          "AI-assisted multilingual patient health platform — SIH prototype with simulated data.",
       },
     ],
   }),
@@ -57,7 +58,7 @@ const roles: {
   {
     role: "doctor",
     title: "Doctor / Clinician",
-    person: "Dr. Meera Iyer · Endocrinology, Manipal",
+    person: "Dr. Ananya Rao · Endocrinology, Manipal",
     to: "/doctor",
     icon: Stethoscope,
     points: ["OPD queue & ABHA search", "Longitudinal vitals charts", "Digital prescriptions & lab orders"],
@@ -122,9 +123,14 @@ function Landing() {
               <HeartPulse className="size-5" />
             </span>
             <div>
-              <p className="text-sm font-bold tracking-tight">SWASTHYASETU</p>
-              <p className="text-[10px] uppercase tracking-widest text-muted-foreground">
-                Unified Health Bridge
+              <p className="flex items-center gap-1.5 text-sm font-bold tracking-tight">
+                SWASTHYASETU
+                <Badge variant="outline" className="px-1.5 py-0 text-[9px] font-semibold uppercase">
+                  SIH Prototype
+                </Badge>
+              </p>
+              <p className="text-[10px] text-muted-foreground">
+                AI-Assisted Multilingual Patient Health Platform
               </p>
             </div>
           </div>
@@ -142,7 +148,7 @@ function Landing() {
       <section className="border-b border-border bg-gradient-to-b from-primary/8 to-background">
         <div className="mx-auto max-w-6xl px-5 py-16 text-center">
           <Badge variant="outline" className="mb-4 border-primary/30 bg-primary/10 text-primary">
-            Smart India Hackathon · Healthcare Prototype
+            SIH Prototype · AI-Assisted Multilingual Patient Health Platform
           </Badge>
           <h1 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl">
             One health record. Every doctor, every hospital, every emergency.
@@ -175,6 +181,10 @@ function Landing() {
           </div>
         </div>
       </section>
+
+      <div className="mx-auto max-w-6xl px-5 pt-8">
+        <PrototypeNotice className="mb-0" />
+      </div>
 
       <section className="mx-auto max-w-6xl px-5 py-14">
         <h2 className="text-xl font-semibold tracking-tight">Choose how you want to enter the demo</h2>
@@ -249,7 +259,8 @@ function Landing() {
       </section>
 
       <footer className="border-t border-border py-6 text-center text-xs text-muted-foreground">
-        SWASTHYASETU · Prototype for demonstration only. Simulated data, no live ABDM connection.
+        SWASTHYASETU · Simulated Prototype — No real Aadhaar, ABHA, or government APIs connected.
+        Identity, biometrics, SMS, and OCR features are simulated for demonstration.
       </footer>
     </div>
   );

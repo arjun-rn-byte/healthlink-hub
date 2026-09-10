@@ -79,18 +79,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "SWASTHYASETU — Unified Health Records Bridge" },
+      { title: "SWASTHYASETU — AI-Assisted Multilingual Patient Health Platform" },
       {
         name: "description",
         content:
-          "Consent-driven, offline-ready health record bridge connecting patients, clinicians and emergency responders.",
+          "SIH prototype: AI-assisted, multilingual, consent-driven health platform for patients, clinicians and emergency responders. Simulated data only.",
       },
       { name: "author", content: "Team SWASTHYASETU" },
-      { property: "og:title", content: "SWASTHYASETU — Unified Health Records Bridge" },
+      {
+        property: "og:title",
+        content: "SWASTHYASETU — AI-Assisted Multilingual Patient Health Platform",
+      },
       {
         property: "og:description",
         content:
-          "Consent-driven, offline-ready health record bridge connecting patients, clinicians and emergency responders.",
+          "SIH prototype: AI-assisted, multilingual, consent-driven health platform. Simulated data only.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

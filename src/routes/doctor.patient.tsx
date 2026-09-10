@@ -43,13 +43,13 @@ function DoctorPatient() {
         {
           id: `CN-${Date.now()}`,
           date: nowStamp().slice(0, 10),
-          author: "Dr. Meera Iyer, Endocrinology",
+          author: "Dr. Ananya Rao, Endocrinology",
           text: note.trim(),
         },
         ...s.clinicalNotes,
       ],
     }));
-    logAudit({ actor: "Dr. Meera Iyer", action: "Clinical note added", scope: patient.id });
+    logAudit({ actor: "Dr. Ananya Rao", action: "Clinical note added", scope: patient.id });
     setNote("");
     toast.success("Clinical note saved to the shared record");
   };
@@ -75,6 +75,23 @@ function DoctorPatient() {
           Chronic: {patient.conditions.join(" · ")}
         </div>
       </div>
+
+      {state.triage && (
+        <div className="mb-5 rounded-lg border border-primary/30 bg-primary/5 p-4">
+          <p className="text-sm font-semibold">
+            AI triage (patient-submitted · {state.triage.language === "kn" ? "Kannada" : "English"}) —{" "}
+            <span className="uppercase text-primary">{state.triage.level}</span> · suggested{" "}
+            {state.triage.suggestedDept}
+          </p>
+          <p className="mt-1 text-sm text-muted-foreground">
+            {state.triage.symptoms.join(", ") || "Free-text only"} · severity {state.triage.severity}/10 ·{" "}
+            {state.triage.durationDays} day(s) · {state.triage.submittedAt}
+          </p>
+          {state.triage.freeText && (
+            <p className="mt-1 text-sm italic text-muted-foreground">"{state.triage.freeText}"</p>
+          )}
+        </div>
+      )}
 
       <div className="grid gap-5 lg:grid-cols-3">
         <Card className="lg:col-span-2">
