@@ -21,17 +21,17 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SWASTHYASETU — Choose Your Role" },
+      { title: "SWASTHYASETU — AI-Assisted Multilingual Patient Health Platform" },
       {
         name: "description",
         content:
-          "Enter SWASTHYASETU as a patient, clinician, emergency responder or hackathon judge and explore the unified health record bridge.",
+          "Enter SWASTHYASETU as a patient, clinician, emergency responder or hackathon judge. AI-assisted, multilingual, consent-driven health records. Simulated prototype.",
       },
-      { property: "og:title", content: "SWASTHYASETU — Choose Your Role" },
+      { property: "og:title", content: "SWASTHYASETU — AI-Assisted Multilingual Patient Health Platform" },
       {
         property: "og:description",
         content:
-          "Enter SWASTHYASETU as a patient, clinician, emergency responder or hackathon judge.",
+          "AI-assisted multilingual patient health platform — SIH prototype with simulated data.",
       },
     ],
   }),
@@ -122,9 +122,14 @@ function Landing() {
               <HeartPulse className="size-5" />
             </span>
             <div>
-              <p className="text-sm font-bold tracking-tight">SWASTHYASETU</p>
-              <p className="text-[10px] uppercase tracking-widest text-muted-foreground">
-                Unified Health Bridge
+              <p className="flex items-center gap-1.5 text-sm font-bold tracking-tight">
+                SWASTHYASETU
+                <Badge variant="outline" className="px-1.5 py-0 text-[9px] font-semibold uppercase">
+                  SIH Prototype
+                </Badge>
+              </p>
+              <p className="text-[10px] text-muted-foreground">
+                AI-Assisted Multilingual Patient Health Platform
               </p>
             </div>
           </div>
