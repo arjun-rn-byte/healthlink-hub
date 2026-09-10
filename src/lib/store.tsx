@@ -416,7 +416,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
 
   const logAudit = useCallback<Ctx["logAudit"]>((entry) => {
     setState((s) => {
-      const prev = s.audit.length ? s.audit[s.audit.length - 1].hash : "0000000000000";
+      const prev = s.audit[s.audit.length - 1]?.hash ?? "0000000000000";
       const hash = shortHash(prev + entry.actor + entry.action + s.audit.length);
       return {
         ...s,
