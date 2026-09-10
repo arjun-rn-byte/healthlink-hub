@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { useStore } from "@/lib/store";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/doctor")({
+export const Route = createFileRoute("/doctor/")({
   head: () => ({
     meta: [
       { title: "OPD Workspace — SWASTHYASETU" },

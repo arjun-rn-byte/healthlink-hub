@@ -31,7 +31,7 @@ import { Label } from "@/components/ui/label";
 import { healthScore, useStore, nowStamp, lastVital, prevVital } from "@/lib/store";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/patient")({
+export const Route = createFileRoute("/patient/")({
   head: () => ({
     meta: [
       { title: "Patient Health Dashboard — SWASTHYASETU" },

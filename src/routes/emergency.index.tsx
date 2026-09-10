@@ -16,7 +16,7 @@ import {
 import { useStore, lastVital } from "@/lib/store";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/emergency")({
+export const Route = createFileRoute("/emergency/")({
   head: () => ({
     meta: [
       { title: "Emergency Triage Portal — SWASTHYASETU" },
