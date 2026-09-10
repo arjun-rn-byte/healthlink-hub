@@ -133,6 +133,20 @@ export type AppState = {
   appointments: { id: string; date: string; time: string; doctor: string; dept: string; mode: string }[];
   demoStep: number;
   demoScenario: string;
+  triage: TriageRecord | null;
+};
+
+export type TriageRecord = {
+  id: string;
+  submittedAt: string;
+  language: "en" | "kn";
+  symptoms: string[];
+  freeText: string;
+  durationDays: number;
+  severity: number;
+  level: "emergency" | "urgent" | "routine" | "self-care";
+  advice: string;
+  suggestedDept: string;
 };
 
 const today = new Date();
@@ -374,9 +388,10 @@ export const initialState: AppState = {
   ],
   demoStep: 0,
   demoScenario: "roadside",
+  triage: null,
 };
 
-const KEY = "swasthyasetu-state-v1";
+const KEY = "swasthyasetu-state-v2";
 
 type Ctx = {
   state: AppState;
