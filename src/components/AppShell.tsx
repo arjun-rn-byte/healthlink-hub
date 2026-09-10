@@ -169,9 +169,10 @@ export function AppShell({
             </div>
           ))}
           <div className="rounded-lg border border-border bg-secondary/60 p-3">
-            <p className="text-xs font-semibold">Prototype mode</p>
+            <p className="text-xs font-semibold">Simulated Prototype</p>
             <p className="mt-1 text-[11px] leading-relaxed text-muted-foreground">
-              Simulated ABDM consent, offline sync and audit trail. No live patient data is used.
+              No real Aadhaar, ABHA, or government APIs connected. Identity, biometrics, SMS, and OCR
+              features are simulated for demonstration.
             </p>
           </div>
         </nav>
@@ -295,6 +296,7 @@ export function AppShell({
 
         <main className="px-4 py-6 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
+            <PrototypeNotice />
             <div className="no-print mb-6 flex flex-wrap items-start justify-between gap-4">
               <div>
                 <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">{title}</h1>
@@ -308,6 +310,24 @@ export function AppShell({
           </div>
         </main>
       </div>
+    </div>
+  );
+}
+
+export function PrototypeNotice({ className }: { className?: string }) {
+  return (
+    <div
+      className={cn(
+        "no-print mb-5 flex items-start gap-2 rounded-lg border border-warning/40 bg-warning/10 px-3 py-2 text-xs leading-relaxed text-warning-foreground",
+        className,
+      )}
+    >
+      <AlertTriangle className="mt-0.5 size-3.5 shrink-0" />
+      <span>
+        <strong className="font-semibold">Simulated Prototype</strong> — No real Aadhaar, ABHA, or
+        government APIs connected. Identity, biometrics, SMS, and OCR features are simulated for
+        demonstration.
+      </span>
     </div>
   );
 }
