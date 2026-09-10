@@ -147,7 +147,7 @@ function Landing() {
       <section className="border-b border-border bg-gradient-to-b from-primary/8 to-background">
         <div className="mx-auto max-w-6xl px-5 py-16 text-center">
           <Badge variant="outline" className="mb-4 border-primary/30 bg-primary/10 text-primary">
-            Smart India Hackathon · Healthcare Prototype
+            SIH Prototype · AI-Assisted Multilingual Patient Health Platform
           </Badge>
           <h1 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl">
             One health record. Every doctor, every hospital, every emergency.
@@ -254,7 +254,8 @@ function Landing() {
       </section>
 
       <footer className="border-t border-border py-6 text-center text-xs text-muted-foreground">
-        SWASTHYASETU · Prototype for demonstration only. Simulated data, no live ABDM connection.
+        SWASTHYASETU · Simulated Prototype — No real Aadhaar, ABHA, or government APIs connected.
+        Identity, biometrics, SMS, and OCR features are simulated for demonstration.
       </footer>
     </div>
   );
