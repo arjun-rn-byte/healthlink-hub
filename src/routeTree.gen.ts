@@ -56,14 +56,14 @@ const DoctorIndexRoute = DoctorIndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const DoctorConsultationRoute = DoctorConsultationRouteImport.update({
-  id: '/doctor/consultation',
-  path: '/doctor/consultation',
-  getParentRoute: () => rootRouteImport,
+  id: '/consultation',
+  path: '/consultation',
+  getParentRoute: () => DoctorRoute,
 } as any)
 const DoctorPatientRoute = DoctorPatientRouteImport.update({
-  id: '/doctor/patient',
-  path: '/doctor/patient',
-  getParentRoute: () => rootRouteImport,
+  id: '/patient',
+  path: '/patient',
+  getParentRoute: () => DoctorRoute,
 } as any)
 const EmergencyIndexRoute = EmergencyIndexRouteImport.update({
   id: '/emergency/',
@@ -71,9 +71,9 @@ const EmergencyIndexRoute = EmergencyIndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const EmergencyLogRoute = EmergencyLogRouteImport.update({
-  id: '/emergency/log',
-  path: '/emergency/log',
-  getParentRoute: () => rootRouteImport,
+  id: '/log',
+  path: '/log',
+  getParentRoute: () => EmergencyRoute,
 } as any)
 const PatientIndexRoute = PatientIndexRouteImport.update({
   id: '/patient/',
@@ -81,24 +81,24 @@ const PatientIndexRoute = PatientIndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const PatientDocumentsRoute = PatientDocumentsRouteImport.update({
-  id: '/patient/documents',
-  path: '/patient/documents',
-  getParentRoute: () => rootRouteImport,
+  id: '/documents',
+  path: '/documents',
+  getParentRoute: () => PatientRoute,
 } as any)
 const PatientEmergencyProfileRoute = PatientEmergencyProfileRouteImport.update({
-  id: '/patient/emergency-profile',
-  path: '/patient/emergency-profile',
-  getParentRoute: () => rootRouteImport,
+  id: '/emergency-profile',
+  path: '/emergency-profile',
+  getParentRoute: () => PatientRoute,
 } as any)
 const PatientHistoryRoute = PatientHistoryRouteImport.update({
-  id: '/patient/history',
-  path: '/patient/history',
-  getParentRoute: () => rootRouteImport,
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => PatientRoute,
 } as any)
 const PatientQuestionnaireRoute = PatientQuestionnaireRouteImport.update({
-  id: '/patient/questionnaire',
-  path: '/patient/questionnaire',
-  getParentRoute: () => rootRouteImport,
+  id: '/questionnaire',
+  path: '/questionnaire',
+  getParentRoute: () => PatientRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -213,13 +213,6 @@ export interface RootRouteChildren {
   ConsentRoute: typeof ConsentRoute
   OfflineRoute: typeof OfflineRoute
   ScenariosRoute: typeof ScenariosRoute
-  DoctorConsultationRoute: typeof DoctorConsultationRoute
-  DoctorPatientRoute: typeof DoctorPatientRoute
-  EmergencyLogRoute: typeof EmergencyLogRoute
-  PatientDocumentsRoute: typeof PatientDocumentsRoute
-  PatientEmergencyProfileRoute: typeof PatientEmergencyProfileRoute
-  PatientHistoryRoute: typeof PatientHistoryRoute
-  PatientQuestionnaireRoute: typeof PatientQuestionnaireRoute
   DoctorIndexRoute: typeof DoctorIndexRoute
   EmergencyIndexRoute: typeof EmergencyIndexRoute
   PatientIndexRoute: typeof PatientIndexRoute
@@ -271,17 +264,17 @@ declare module '@tanstack/react-router' {
     }
     '/doctor/consultation': {
       id: '/doctor/consultation'
-      path: '/doctor/consultation'
+      path: '/consultation'
       fullPath: '/doctor/consultation'
       preLoaderRoute: typeof DoctorConsultationRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof DoctorRoute
     }
     '/doctor/patient': {
       id: '/doctor/patient'
-      path: '/doctor/patient'
+      path: '/patient'
       fullPath: '/doctor/patient'
       preLoaderRoute: typeof DoctorPatientRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof DoctorRoute
     }
     '/emergency/': {
       id: '/emergency/'
@@ -292,10 +285,10 @@ declare module '@tanstack/react-router' {
     }
     '/emergency/log': {
       id: '/emergency/log'
-      path: '/emergency/log'
+      path: '/log'
       fullPath: '/emergency/log'
       preLoaderRoute: typeof EmergencyLogRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof EmergencyRoute
     }
     '/patient/': {
       id: '/patient/'
@@ -306,31 +299,31 @@ declare module '@tanstack/react-router' {
     }
     '/patient/documents': {
       id: '/patient/documents'
-      path: '/patient/documents'
+      path: '/documents'
       fullPath: '/patient/documents'
       preLoaderRoute: typeof PatientDocumentsRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof PatientRoute
     }
     '/patient/emergency-profile': {
       id: '/patient/emergency-profile'
-      path: '/patient/emergency-profile'
+      path: '/emergency-profile'
       fullPath: '/patient/emergency-profile'
       preLoaderRoute: typeof PatientEmergencyProfileRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof PatientRoute
     }
     '/patient/history': {
       id: '/patient/history'
-      path: '/patient/history'
+      path: '/history'
       fullPath: '/patient/history'
       preLoaderRoute: typeof PatientHistoryRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof PatientRoute
     }
     '/patient/questionnaire': {
       id: '/patient/questionnaire'
-      path: '/patient/questionnaire'
+      path: '/questionnaire'
       fullPath: '/patient/questionnaire'
       preLoaderRoute: typeof PatientQuestionnaireRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof PatientRoute
     }
   }
 }
@@ -341,13 +334,6 @@ const rootRouteChildren: RootRouteChildren = {
   ConsentRoute: ConsentRoute,
   OfflineRoute: OfflineRoute,
   ScenariosRoute: ScenariosRoute,
-  DoctorConsultationRoute: DoctorConsultationRoute,
-  DoctorPatientRoute: DoctorPatientRoute,
-  EmergencyLogRoute: EmergencyLogRoute,
-  PatientDocumentsRoute: PatientDocumentsRoute,
-  PatientEmergencyProfileRoute: PatientEmergencyProfileRoute,
-  PatientHistoryRoute: PatientHistoryRoute,
-  PatientQuestionnaireRoute: PatientQuestionnaireRoute,
   DoctorIndexRoute: DoctorIndexRoute,
   EmergencyIndexRoute: EmergencyIndexRoute,
   PatientIndexRoute: PatientIndexRoute,
