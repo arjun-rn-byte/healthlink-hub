@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import { useStore, nowStamp } from "@/lib/store";
+import { useStore, nowStamp, lastVital } from "@/lib/store";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/doctor/consultation")({
@@ -32,7 +32,7 @@ const labCatalogue = ["HbA1c", "Lipid profile", "Serum creatinine", "Fundus scre
 function Consultation() {
   const { state, set, logAudit } = useStore();
   const { patient } = state;
-  const latest = state.vitals[state.vitals.length - 1];
+  const latest = lastVital(state);
   const active = state.queue.find((p) => p.status === "in-consult") ?? state.queue[0];
 
   const [vitals, setVitals] = useState({

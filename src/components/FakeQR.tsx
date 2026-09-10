@@ -30,11 +30,11 @@ export function FakeQR({ seed, size = 160 }: { seed: string; size?: number }) {
         if (isFinder(r, c)) return null;
         return on ? <rect key={i} x={c} y={r} width={1} height={1} fill="#0f172a" /> : null;
       })}
-      {[
+      {([
         [0, 0],
         [0, n - 7],
         [n - 7, 0],
-      ].map(([r, c]) => (
+      ] as [number, number][]).map(([r, c]) => (
         <g key={`${r}-${c}`}>
           <rect x={c} y={r} width={7} height={7} fill="#0f172a" />
           <rect x={c + 1} y={r + 1} width={5} height={5} fill="#fff" />

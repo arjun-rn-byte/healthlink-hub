@@ -416,7 +416,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
 
   const logAudit = useCallback<Ctx["logAudit"]>((entry) => {
     setState((s) => {
-      const prev = s.audit.length ? s.audit[s.audit.length - 1].hash : "0000000000000";
+      const prev = s.audit[s.audit.length - 1]?.hash ?? "0000000000000";
       const hash = shortHash(prev + entry.actor + entry.action + s.audit.length);
       return {
         ...s,
@@ -467,4 +467,22 @@ export function healthScore(state: AppState) {
   score -= Math.max(0, v.glucose - 110) * 0.18;
   score -= state.patient.conditions.length * 3;
   return Math.max(35, Math.min(99, Math.round(score)));
+}
+
+const fallbackVital: Vital = {
+  date: new Date().toISOString().slice(0, 10),
+  systolic: 120,
+  diastolic: 80,
+  glucose: 100,
+  pulse: 72,
+  weight: 79,
+  spo2: 98,
+};
+
+export function lastVital(s: AppState): Vital {
+  return s.vitals[s.vitals.length - 1] ?? fallbackVital;
+}
+
+export function prevVital(s: AppState): Vital {
+  return s.vitals[s.vitals.length - 2] ?? lastVital(s);
 }

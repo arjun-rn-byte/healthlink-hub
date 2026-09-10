@@ -13,7 +13,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { useStore } from "@/lib/store";
+import { useStore, lastVital } from "@/lib/store";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/emergency")({
@@ -35,7 +35,7 @@ export const Route = createFileRoute("/emergency")({
 function EmergencyPortal() {
   const { state, logAudit } = useStore();
   const { patient } = state;
-  const latest = state.vitals[state.vitals.length - 1];
+  const latest = lastVital(state);
   const [id, setId] = useState("SS-10024");
   const [unlocked, setUnlocked] = useState(false);
   const [confirmOpen, setConfirmOpen] = useState(false);

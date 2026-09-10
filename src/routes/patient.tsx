@@ -28,7 +28,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { healthScore, useStore, nowStamp } from "@/lib/store";
+import { healthScore, useStore, nowStamp, lastVital, prevVital } from "@/lib/store";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/patient")({
@@ -53,8 +53,8 @@ export const Route = createFileRoute("/patient")({
 function PatientDashboard() {
   const { state, set, logAudit } = useStore();
   const { patient } = state;
-  const latest = state.vitals[state.vitals.length - 1];
-  const prev = state.vitals[state.vitals.length - 2] ?? latest;
+  const latest = lastVital(state);
+  const prev = prevVital(state);
   const score = healthScore(state);
   const [vitalsOpen, setVitalsOpen] = useState(false);
   const [form, setForm] = useState({

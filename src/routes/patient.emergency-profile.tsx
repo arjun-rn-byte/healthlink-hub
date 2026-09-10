@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
-import { useStore } from "@/lib/store";
+import { useStore, lastVital } from "@/lib/store";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/patient/emergency-profile")({
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/patient/emergency-profile")({
 function EmergencyProfile() {
   const { state, set, logAudit } = useStore();
   const { patient } = state;
-  const latest = state.vitals[state.vitals.length - 1];
+  const latest = lastVital(state);
   const [shareVitals, setShareVitals] = useState(true);
   const [shareMeds, setShareMeds] = useState(true);
   const [shareContact, setShareContact] = useState(true);
