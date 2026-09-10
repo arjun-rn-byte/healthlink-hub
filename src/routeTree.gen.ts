@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PatientRouteImport } from './routes/patient'
+import { Route as PatientHistoryRouteImport } from './routes/patient.history'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +23,39 @@ const PatientRoute = PatientRouteImport.update({
   path: '/patient',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PatientHistoryRoute = PatientHistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => PatientRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/patient': typeof PatientRoute
+  '/patient': typeof PatientRouteWithChildren
+  '/patient/history': typeof PatientHistoryRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/patient': typeof PatientRoute
+  '/patient': typeof PatientRouteWithChildren
+  '/patient/history': typeof PatientHistoryRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/patient': typeof PatientRoute
+  '/patient': typeof PatientRouteWithChildren
+  '/patient/history': typeof PatientHistoryRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/patient'
+  fullPaths: '/' | '/patient' | '/patient/history'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/patient'
-  id: '__root__' | '/' | '/patient'
+  to: '/' | '/patient' | '/patient/history'
+  id: '__root__' | '/' | '/patient' | '/patient/history'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  PatientRoute: typeof PatientRoute
+  PatientRoute: typeof PatientRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +74,30 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PatientRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/patient/history': {
+      id: '/patient/history'
+      path: '/history'
+      fullPath: '/patient/history'
+      preLoaderRoute: typeof PatientHistoryRouteImport
+      parentRoute: typeof PatientRoute
+    }
   }
 }
 
+interface PatientRouteChildren {
+  PatientHistoryRoute: typeof PatientHistoryRoute
+}
+
+const PatientRouteChildren: PatientRouteChildren = {
+  PatientHistoryRoute: PatientHistoryRoute,
+}
+
+const PatientRouteWithChildren =
+  PatientRoute._addFileChildren(PatientRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  PatientRoute: PatientRoute,
+  PatientRoute: PatientRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
