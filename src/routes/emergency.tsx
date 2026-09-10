@@ -13,7 +13,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { useStore } from "@/lib/store";
+import { useStore, lastVital } from "@/lib/store";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/emergency")({

@@ -28,7 +28,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { healthScore, useStore, nowStamp } from "@/lib/store";
+import { healthScore, useStore, nowStamp, lastVital, prevVital } from "@/lib/store";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/patient")({

@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import { useStore, nowStamp } from "@/lib/store";
+import { useStore, nowStamp, lastVital } from "@/lib/store";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/doctor/consultation")({

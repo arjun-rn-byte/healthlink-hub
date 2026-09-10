@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
-import { useStore } from "@/lib/store";
+import { useStore, lastVital } from "@/lib/store";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/patient/emergency-profile")({

@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useStore, nowStamp } from "@/lib/store";
+import { useStore, nowStamp, lastVital } from "@/lib/store";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/doctor/patient")({
