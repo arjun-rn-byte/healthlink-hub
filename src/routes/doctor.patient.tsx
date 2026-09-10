@@ -30,7 +30,7 @@ function DoctorPatient() {
   const { state, set, logAudit } = useStore();
   const { patient } = state;
   const [note, setNote] = useState("");
-  const latest = state.vitals[state.vitals.length - 1];
+  const latest = lastVital(state);
 
   const addNote = () => {
     if (!note.trim()) {

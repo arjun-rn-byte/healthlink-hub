@@ -32,7 +32,7 @@ export const Route = createFileRoute("/patient/emergency-profile")({
 function EmergencyProfile() {
   const { state, set, logAudit } = useStore();
   const { patient } = state;
-  const latest = state.vitals[state.vitals.length - 1];
+  const latest = lastVital(state);
   const [shareVitals, setShareVitals] = useState(true);
   const [shareMeds, setShareMeds] = useState(true);
   const [shareContact, setShareContact] = useState(true);
