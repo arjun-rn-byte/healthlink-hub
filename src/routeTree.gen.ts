@@ -10,8 +10,10 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ConsentRouteImport } from './routes/consent'
 import { Route as DoctorRouteImport } from './routes/doctor'
 import { Route as EmergencyRouteImport } from './routes/emergency'
+import { Route as OfflineRouteImport } from './routes/offline'
 import { Route as PatientRouteImport } from './routes/patient'
 import { Route as DoctorConsultationRouteImport } from './routes/doctor.consultation'
 import { Route as DoctorPatientRouteImport } from './routes/doctor.patient'
@@ -25,6 +27,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ConsentRoute = ConsentRouteImport.update({
+  id: '/consent',
+  path: '/consent',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DoctorRoute = DoctorRouteImport.update({
   id: '/doctor',
   path: '/doctor',
@@ -33,6 +40,11 @@ const DoctorRoute = DoctorRouteImport.update({
 const EmergencyRoute = EmergencyRouteImport.update({
   id: '/emergency',
   path: '/emergency',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OfflineRoute = OfflineRouteImport.update({
+  id: '/offline',
+  path: '/offline',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PatientRoute = PatientRouteImport.update({
@@ -73,8 +85,10 @@ const PatientHistoryRoute = PatientHistoryRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/consent': typeof ConsentRoute
   '/doctor': typeof DoctorRouteWithChildren
   '/emergency': typeof EmergencyRouteWithChildren
+  '/offline': typeof OfflineRoute
   '/patient': typeof PatientRouteWithChildren
   '/doctor/consultation': typeof DoctorConsultationRoute
   '/doctor/patient': typeof DoctorPatientRoute
@@ -85,8 +99,10 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/consent': typeof ConsentRoute
   '/doctor': typeof DoctorRouteWithChildren
   '/emergency': typeof EmergencyRouteWithChildren
+  '/offline': typeof OfflineRoute
   '/patient': typeof PatientRouteWithChildren
   '/doctor/consultation': typeof DoctorConsultationRoute
   '/doctor/patient': typeof DoctorPatientRoute
@@ -98,8 +114,10 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/consent': typeof ConsentRoute
   '/doctor': typeof DoctorRouteWithChildren
   '/emergency': typeof EmergencyRouteWithChildren
+  '/offline': typeof OfflineRoute
   '/patient': typeof PatientRouteWithChildren
   '/doctor/consultation': typeof DoctorConsultationRoute
   '/doctor/patient': typeof DoctorPatientRoute
@@ -112,8 +130,10 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/consent'
     | '/doctor'
     | '/emergency'
+    | '/offline'
     | '/patient'
     | '/doctor/consultation'
     | '/doctor/patient'
@@ -124,8 +144,10 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/consent'
     | '/doctor'
     | '/emergency'
+    | '/offline'
     | '/patient'
     | '/doctor/consultation'
     | '/doctor/patient'
@@ -136,8 +158,10 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/consent'
     | '/doctor'
     | '/emergency'
+    | '/offline'
     | '/patient'
     | '/doctor/consultation'
     | '/doctor/patient'
@@ -149,8 +173,10 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ConsentRoute: typeof ConsentRoute
   DoctorRoute: typeof DoctorRouteWithChildren
   EmergencyRoute: typeof EmergencyRouteWithChildren
+  OfflineRoute: typeof OfflineRoute
   PatientRoute: typeof PatientRouteWithChildren
 }
 
@@ -161,6 +187,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/consent': {
+      id: '/consent'
+      path: '/consent'
+      fullPath: '/consent'
+      preLoaderRoute: typeof ConsentRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/doctor': {
@@ -175,6 +208,13 @@ declare module '@tanstack/react-router' {
       path: '/emergency'
       fullPath: '/emergency'
       preLoaderRoute: typeof EmergencyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/offline': {
+      id: '/offline'
+      path: '/offline'
+      fullPath: '/offline'
+      preLoaderRoute: typeof OfflineRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/patient': {
@@ -271,8 +311,10 @@ const PatientRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ConsentRoute: ConsentRoute,
   DoctorRoute: DoctorRouteWithChildren,
   EmergencyRoute: EmergencyRouteWithChildren,
+  OfflineRoute: OfflineRoute,
   PatientRoute: PatientRouteWithChildren,
 }
 export const routeTree = rootRouteImport
