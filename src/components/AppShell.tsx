@@ -43,6 +43,7 @@ const groups: { title: string; role: Role; items: NavItem[] }[] = [
     role: "patient",
     items: [
       { to: "/patient", label: "Health Dashboard", icon: HeartPulse },
+      { to: "/patient/questionnaire", label: "AI Questionnaire", icon: BookOpenCheck },
       { to: "/patient/history", label: "Medical History", icon: History },
       { to: "/patient/documents", label: "Health Locker", icon: FileText },
       { to: "/patient/emergency-profile", label: "Emergency Card", icon: QrCode },
@@ -114,9 +115,14 @@ export function AppShell({
               <HeartPulse className="size-5" />
             </span>
             <span>
-              <span className="block text-sm font-bold tracking-tight">SWASTHYASETU</span>
-              <span className="block text-[10px] uppercase tracking-widest text-muted-foreground">
-                Unified Health Bridge
+              <span className="flex items-center gap-1.5 text-sm font-bold tracking-tight">
+                SWASTHYASETU
+                <Badge variant="outline" className="px-1.5 py-0 text-[9px] font-semibold uppercase">
+                  SIH Prototype
+                </Badge>
+              </span>
+              <span className="block text-[10px] leading-tight text-muted-foreground">
+                AI-Assisted Multilingual Patient Health Platform
               </span>
             </span>
           </Link>
